@@ -1,0 +1,25 @@
+import hashlib
+
+def hash256(pw):    
+    return hashlib.sha256(pw.encode('utf-8')).hexdigest()
+
+charSet='abcdefghijklmnopqrstuvwxyz'
+
+hashToCrack='cb8379ac2098aa165029e3938a51da0bcecfc008fd6795f401178647f96c5b34'
+cracked=False
+
+for i in range(0, len(charSet)):
+    for j in range(0, len(charSet)):
+        for k in range(0, len(charSet)):
+            PwTry=charSet[i]+charSet[j]+charSet[k]
+            print("Trying: "+PwTry)
+            if hash256(PwTry)==hashToCrack:
+                print("Pw found")
+                cracked=True
+                break
+        if cracked==True:
+            break
+        j+=1
+    if cracked==True:
+        break
+    i+=1
