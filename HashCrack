@@ -1,25 +1,35 @@
 import hashlib
 
-def hash256(pw):    
-    return hashlib.sha256(pw.encode('utf-8')).hexdigest()
+def hash512(pw):    
+    return hashlib.sha512(pw.encode('utf-8')).hexdigest().upper()
 
-charSet='abcdefghijklmnopqrstuvwxyz'
+def crack512(hashToCrack):
+    
+    charSet='abcdefghijklmnopqrstuvwxyz'
 
-hashToCrack='cb8379ac2098aa165029e3938a51da0bcecfc008fd6795f401178647f96c5b34'
-cracked=False
+    cracked=False
 
-for i in range(0, len(charSet)):
-    for j in range(0, len(charSet)):
-        for k in range(0, len(charSet)):
-            PwTry=charSet[i]+charSet[j]+charSet[k]
-            print("Trying: "+PwTry)
-            if hash256(PwTry)==hashToCrack:
-                print("Pw found")
-                cracked=True
+    for i in range(0, len(charSet)):
+        for j in range(0, len(charSet)):
+            for k in range(0, len(charSet)):
+                PwTry=charSet[i]+charSet[j]+charSet[k]
+                print("Trying: "+PwTry)
+                if hash512(PwTry)==hashToCrack:
+                    print("Pw found")
+                    cracked=True
+                    break
+            if cracked==True:
                 break
+            j+=1
         if cracked==True:
             break
-        j+=1
+        i+=1
     if cracked==True:
-        break
-    i+=1
+        return PwTry
+    else:
+        return "0"
+
+
+print("Insert the SHA 512 hash:")
+hashInput=input()
+print(crack512(hashInput))
