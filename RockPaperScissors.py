@@ -1,9 +1,14 @@
-import random
+import random, os
 
 #initialisnig the list of possible choices and the boolean that keeps repeating the game
 
 RPS=["R","P","S"]
 stay=True
+
+#creating RPS.txt if it does not exist
+if os.path.isfile("RPS.txt")==False:
+    f=open('RPS.txt','w')  
+    f.close()
 
 def whowon(you,me):
 
@@ -94,8 +99,8 @@ def asknewround():
 def savetofile(you,me):
     
     #save the result in RPS.txt (your choice, my choice, winner)
-    
-    f=open('RPS.txt','a')
+
+    f=open('RPS.txt','a') 
     f.write(you+me+whowon(you,me)[0].upper()+"\n")
     f.close()
 
@@ -123,4 +128,5 @@ print("Your choices so far:")
 print("R: "+str(whathappened["R"]))
 print("P: "+str(whathappened["P"]))
 print("S: "+str(whathappened["S"]))
+
 
