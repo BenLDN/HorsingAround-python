@@ -1,3 +1,6 @@
+#Playing RPS with the user. Stroring the user's choices in a txt file,
+#identifying the most common choice and determining the hand that wins against that choice.
+
 import random, os
 
 #initialisnig the list of possible choices and the boolean that keeps repeating the game
