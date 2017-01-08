@@ -7,4 +7,4 @@ Hashit: generating the following hashes from a string input: MD5, SHA-1, SHA-224
 
 Rockpaperscissors: playing RPS with the user. Stroring the user's choices in a txt file, identifying the most common choice and determining the hand that wins against that choice.
 
-Coinflips: to be added
+Coinflips: Simulation of the martingale strategy in a double or nothing coin flip game.
