@@ -29,3 +29,19 @@ for row in mat:
     for cell in row:
         print(cell, end=' ')
     print("")
+
+    c2=0
+r2=0
+
+wb_new = Workbook()
+ws_new=wb_new.active
+  
+for row in mat:
+    r2+=1
+    c2=0
+    for cell in row:
+        c2+=1
+        ws_new.cell(row=r2, column=c2).value=cell
+
+
+wb_new.save("general.xlsx")
