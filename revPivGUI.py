@@ -31,6 +31,8 @@ def convertFile():
     ws=wb.active
 
     mat=[]
+    r2=0
+    c2=0
 
     last_row=ws.max_row
     last_col=ws.max_column
