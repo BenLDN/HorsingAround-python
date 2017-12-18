@@ -1,8 +1,6 @@
 import time
 import random
 
-
-
 def random_list(size):
     out_list=[]
     for i in range(0,size):
